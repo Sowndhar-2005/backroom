@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>THE LIMINAL — Somewhere between here and nowhere</title>
+  <meta name="description" content="A 3D first-person psychological horror exploration game set in liminal spaces and endless abandoned buildings." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="alternate icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="/src/styles.css" />
+</head>
+<body>
+  <!-- Mobile Warning -->
+  <div id="mobile-warning">
+    <p>This experience is designed for desktop.</p>
+    <p>Please open on a desktop browser for the best experience.</p>
+  </div>
+
+  <!-- Game Canvas Container -->
+  <div id="game-container">
+    <canvas id="game-canvas"></canvas>
+  </div>
+
+  <!-- Main Menu -->
+  <div id="main-menu" class="ui-screen">
+    <div class="menu-bg"></div>
+    <div class="menu-content">
+      <h1 class="game-title">THE LIMINAL</h1>
+      <p class="game-tagline">"Somewhere between here and nowhere."</p>
+      <div class="menu-buttons">
+        <button id="btn-play" class="menu-btn">PLAY</button>
+        <button id="btn-controls" class="menu-btn">CONTROLS</button>
+        <button id="btn-exit" class="menu-btn">EXIT</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Controls Screen -->
+  <div id="controls-screen" class="ui-screen hidden">
+    <div class="menu-bg"></div>
+    <div class="controls-content">
+      <h2>CONTROLS</h2>
+      <div class="controls-grid">
+        <div class="control-item"><span class="key">W A S D</span><span>Move</span></div>
+        <div class="control-item"><span class="key">SHIFT</span><span>Run</span></div>
+        <div class="control-item"><span class="key">MOUSE</span><span>Look Around</span></div>
+        <div class="control-item"><span class="key">E</span><span>Interact</span></div>
+        <div class="control-item"><span class="key">F</span><span>Flashlight</span></div>
+        <div class="control-item"><span class="key">ESC</span><span>Pause</span></div>
+        <div class="control-item"><span class="key">R</span><span>Restart Level</span></div>
+      </div>
+      <button id="btn-back-controls" class="menu-btn">BACK</button>
+    </div>
+  </div>
+
+  <!-- HUD -->
+  <div id="hud" class="hidden">
+    <div id="hud-objective"></div>
+    <div id="hud-flashlight" class="hidden">🔦 ON</div>
+    <div id="hud-interact" class="hidden">Press <span class="key-inline">E</span> to interact</div>
+    <div id="crosshair">+</div>
+  </div>
+
+  <!-- Note Panel -->
+  <div id="note-panel" class="ui-screen hidden">
+    <div class="note-bg"></div>
+    <div class="note-content">
+      <div id="note-text"></div>
+      <p class="note-dismiss">Press <span class="key-inline">E</span> or click to close</p>
+    </div>
+  </div>
+
+  <!-- Pause Menu -->
+  <div id="pause-menu" class="ui-screen hidden">
+    <div class="menu-bg"></div>
+    <div class="pause-content">
+      <h2>PAUSED</h2>
+      <div class="menu-buttons">
+        <button id="btn-resume" class="menu-btn">RESUME</button>
+        <button id="btn-restart" class="menu-btn">RESTART LEVEL</button>
+        <button id="btn-main-menu" class="menu-btn">MAIN MENU</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Level Transition -->
+  <div id="level-transition" class="ui-screen hidden">
+    <div id="transition-text"></div>
+  </div>
+
+  <!-- Ending Screen -->
+  <div id="ending-screen" class="ui-screen hidden">
+    <div class="ending-content">
+      <h1 class="game-title" id="ending-title">THE LIMINAL</h1>
+      <p id="ending-line1" class="ending-text"></p>
+      <p id="ending-line2" class="ending-text"></p>
+      <p id="ending-line3" class="ending-text"></p>
+      <div id="ending-buttons" class="menu-buttons hidden">
+        <button id="btn-ending-restart" class="menu-btn">RESTART</button>
+        <button id="btn-ending-menu" class="menu-btn">MAIN MENU</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading Screen -->
+  <div id="loading-screen" class="ui-screen hidden">
+    <div class="loading-content">
+      <p>Loading...</p>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

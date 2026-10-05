@@ -1,0 +1,296 @@
+/* ============================================
+   THE LIMINAL — Global Styles
+   ============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  background: #0a0a08;
+  font-family: 'Inter', sans-serif;
+  color: #c8c0a8;
+  cursor: default;
+  user-select: none;
+}
+
+/* Mobile Warning */
+#mobile-warning {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: #0a0a08;
+  z-index: 10000;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+  color: #a09880;
+}
+
+@media (max-width: 768px) {
+  #mobile-warning { display: flex; }
+  #game-container, .ui-screen { display: none !important; }
+}
+
+/* Game Canvas */
+#game-container {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 1;
+}
+
+#game-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* UI Screens */
+.ui-screen {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ui-screen.hidden {
+  display: none;
+}
+
+.menu-bg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(8, 8, 6, 0.92);
+}
+
+/* Main Menu */
+.menu-content, .controls-content, .pause-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.game-title {
+  font-family: 'Special Elite', cursive;
+  font-size: 4.5rem;
+  color: #d4c8a0;
+  letter-spacing: 0.4em;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 40px rgba(180, 160, 100, 0.15);
+  animation: titlePulse 8s ease-in-out infinite;
+}
+
+@keyframes titlePulse {
+  0%, 100% { opacity: 0.85; }
+  50% { opacity: 1; }
+}
+
+.game-tagline {
+  font-style: italic;
+  color: #7a7060;
+  font-size: 1rem;
+  margin-bottom: 3rem;
+  letter-spacing: 0.15em;
+}
+
+.menu-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.menu-btn {
+  background: transparent;
+  border: 1px solid rgba(180, 160, 100, 0.25);
+  color: #b0a480;
+  font-family: 'Special Elite', cursive;
+  font-size: 1.1rem;
+  letter-spacing: 0.3em;
+  padding: 0.7rem 2.5rem;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  min-width: 220px;
+}
+
+.menu-btn:hover {
+  background: rgba(180, 160, 100, 0.08);
+  border-color: rgba(180, 160, 100, 0.5);
+  color: #d4c8a0;
+  text-shadow: 0 0 15px rgba(180, 160, 100, 0.2);
+}
+
+/* Controls */
+.controls-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem 2rem;
+  margin: 2rem 0;
+  text-align: left;
+}
+
+.control-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.key {
+  background: rgba(180, 160, 100, 0.1);
+  border: 1px solid rgba(180, 160, 100, 0.25);
+  padding: 0.3rem 0.7rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  color: #c8c0a0;
+  min-width: 60px;
+  text-align: center;
+}
+
+.key-inline {
+  background: rgba(180, 160, 100, 0.15);
+  border: 1px solid rgba(180, 160, 100, 0.3);
+  padding: 0.1rem 0.4rem;
+  font-size: 0.8rem;
+  color: #c8c0a0;
+}
+
+/* HUD */
+#hud {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 50;
+  pointer-events: none;
+}
+
+#hud.hidden { display: none; }
+
+#crosshair {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(200, 190, 160, 0.4);
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+#hud-objective {
+  position: absolute;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Special Elite', cursive;
+  font-size: 0.9rem;
+  color: rgba(180, 160, 100, 0.6);
+  letter-spacing: 0.15em;
+  text-align: center;
+  transition: opacity 0.5s;
+}
+
+#hud-flashlight {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  font-size: 0.8rem;
+  color: rgba(180, 160, 100, 0.5);
+}
+
+#hud-flashlight.hidden { display: none; }
+
+#hud-interact {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-50%, 3rem);
+  font-size: 0.85rem;
+  color: rgba(200, 190, 160, 0.7);
+  letter-spacing: 0.1em;
+  transition: opacity 0.3s;
+}
+
+#hud-interact.hidden { opacity: 0; pointer-events: none; }
+
+/* Note Panel */
+.note-bg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(5, 5, 3, 0.85);
+}
+
+.note-content {
+  position: relative;
+  z-index: 2;
+  max-width: 500px;
+  padding: 2.5rem;
+  background: rgba(40, 35, 25, 0.9);
+  border: 1px solid rgba(120, 100, 60, 0.2);
+}
+
+#note-text {
+  font-family: 'Special Elite', cursive;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #c0b890;
+  white-space: pre-line;
+  margin-bottom: 1.5rem;
+}
+
+.note-dismiss {
+  font-size: 0.75rem;
+  color: #6a6050;
+  text-align: center;
+}
+
+/* Level Transition */
+#level-transition {
+  background: #050503;
+  z-index: 200;
+}
+
+#transition-text {
+  font-family: 'Special Elite', cursive;
+  font-size: 1.5rem;
+  color: #b0a480;
+  letter-spacing: 0.2em;
+  text-align: center;
+}
+
+/* Ending Screen */
+#ending-screen {
+  background: #050503;
+  z-index: 200;
+}
+
+.ending-content {
+  text-align: center;
+}
+
+.ending-text {
+  font-family: 'Special Elite', cursive;
+  font-size: 1.2rem;
+  color: #a09880;
+  letter-spacing: 0.15em;
+  margin: 1rem 0;
+  opacity: 0;
+}
+
+/* Loading Screen */
+.loading-content {
+  font-family: 'Special Elite', cursive;
+  font-size: 1rem;
+  color: #6a6050;
+  letter-spacing: 0.2em;
+}
